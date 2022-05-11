@@ -1,6 +1,4 @@
-#include <iostream>
 #include <bits/stdc++.h>
-#include <map>
 using namespace std;
 
 int main(int argc, char const *argv[]){
@@ -16,17 +14,16 @@ int main(int argc, char const *argv[]){
     for(int i = 0; i < n; i++){
         getline(cin, input);
         input = input.substr(0, input.find(' '));
-        cout << input << endl;
-
-        
-        
-        // for(int i = 0; i < map.size(); i++){
-            
-        // }
+        // cout << input << endl;
+        if(mmap.find(input) != mmap.end()){
+            mmap[input]++;
+        }else{
+            mmap[input] = 1;
+        }
 
     }
-    // for(int i = 0; i < data.size(); i++){
-    //     cout << data[i] <<" "<< ccon[i]<< endl;
-    // }
+    for(auto i: mmap) {
+        cout << i.first <<" "<< i.second << endl;
+    }
     return 0;
 }

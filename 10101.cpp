@@ -1,37 +1,44 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
-// 45897458973958
-int main(int argc, char const *argv[]){
-    std::ios_base::sync_with_stdio(false);
-    std::cin.tie(0);
+void split(long long n) {
+    // 使用遞迴
+    if (n >= 10000000) {
+        split(n / 10000000);
+        cout << " kuti";
+        n %= 10000000;
+    }
+    if (n >= 100000) {
+        split(n / 100000);
+        cout << " lakh";
+        n %= 100000;
+    }
+    if (n >= 1000) {
+        split(n / 1000);
+        cout << " hajar";
+        n %= 1000;
+    }
+    if (n >= 100) {
+        split(n / 100);
+        cout << " shata";
+        n %= 100;
+    }
+    if (n) // 各單位分隔輸出
+        cout << " " << n;
+}
 
-    long long input;
-    int data[4] = {100, 10, 100, 100};
-    string sum[4] = {"", "shata", "hajar", "lakh"};
-    int con = 1;
-    while(cin >> input){
-        string ans = "";
-        if(input == 0){
-            ans.insert(0,"0");
-        }
-        for(int i = 0; input!= 0; i++){
-            if(i!=0 && i%4==0)
-                ans.insert(0, " kuti");
-            if (input % data[i % 4] != 0) {
-                ans.insert(0, sum[i % 4]);
-                if(i%4 != 0)
-                    ans.insert(0," ");
-                stringstream ss;
-                ss << input % data[i % 4];
-                ans.insert(0, ss.str());
-                if (input / data[i % 4] != 0)
-                    ans.insert(0, " ");
-            }
-            input /= data[i % 4]; 
-        }
-        cout << con << ". " << ans << endl;
-        con++;
+int main() {
+    long long n;
+    int kase = 1;
+    while (cin >> n) {
+        // 輸出要求格式
+        cout << setw(4) << kase++ << ".";
+        if (n)
+            split(n);
+        else
+            cout << " 0";
+        cout << endl;
     }
 
     return 0;
