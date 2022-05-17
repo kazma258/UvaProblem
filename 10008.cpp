@@ -32,7 +32,7 @@ int main(int argc, char const *argv[]) {
         if (max == 0)
             break;
         cout << char(pos + 'A') << " " << max << endl;
-        counts.erase(counts.begin() + pos);
+        counts[pos] = 0;
     }
 
     return 0;
