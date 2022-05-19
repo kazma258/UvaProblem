@@ -6,7 +6,7 @@ int main(){
 	while(cin >> s&& s!= "0"){
 		int result = 0;
 		for(int i = 0; i < s.length(); i++){
-			if(i%2 == 0) //¾l¼Æ0->©_¼Æ¦ì 
+			if(i%2 == 0) 
 				result += s[i]-'0';
 			else
 				result -= s[i]-'0';
