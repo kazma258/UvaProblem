@@ -7,7 +7,7 @@ int main(int argc, char const *argv[]) {
     std::cin.tie(0);
 
     string input;
-    while (cin >> input) {
+    while (getline(cin, input)) {
         map<char, int> count;
         while (!input.empty()) {
             if (count.find(input.back()) != count.end())
@@ -19,7 +19,7 @@ int main(int argc, char const *argv[]) {
         while (!count.empty()) {
             int min_value = INT_MAX;
             int arg_min = 0;
-            for(auto i = count.end(); i != count.begin(); --i) {
+            for(auto i = count.rbegin(); i != count.rend(); ++i) {
                 if(i->second < min_value){
                     min_value = i->second;
                     arg_min = i->first;
