@@ -7,18 +7,13 @@ int main() {
     std::cin.tie(0);
 
     string str;
-    while(true) {}
-    while (getline(cin, str) && !cin.eof()) {
-        bool flaga = false, flagb = false;
+    bool flaga = false, flagb = false;
+    while (getline(cin, str)) {
         for (int i = 0; i < str.length(); i++) {
             if(str[i] == '\"'){
                 if(!flaga) cout << "``";
                 else cout << "\'\'";
                 flaga = !flaga;
-            }else if(str[i] == '\''){
-                if(!flagb) cout << "`";
-                else cout << "\'";
-                flagb = !flagb;
             }else cout << str[i];
         }
         cout << endl;
